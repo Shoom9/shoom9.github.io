@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --version)",
+      "Bash(chromium-cli --help)",
+      "Bash(py --version)",
+      "Bash(where python *)",
+      "Read(//c/Users/schum/AppData/Local/Programs/Python/Launcher/**)"
+    ]
+  }
+}

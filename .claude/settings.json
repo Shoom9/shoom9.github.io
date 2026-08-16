@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(explorer.exe \"c:\\\\Users\\\\schum\\\\Documents\\\\WebSite Main_Road\\\\index.html\")",
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git fetch *)",
+      "Bash(curl -sI --max-time 10 https://github.com)",
+      "Bash(timeout 20 git ls-remote https://github.com/Shoom9/shoom9.github.io.git)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(timeout 30 git fetch origin)"
+    ]
+  }
+}
