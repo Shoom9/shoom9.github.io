@@ -48,8 +48,13 @@
         </div> -->
       </div>
       <div class="hero-image">
-        <i class="fas fa-steering-wheel"></i>
-        <i class="fas fa-car car-icon"></i>
+        <ul class="hero-features">
+          <li><i class="fas fa-check-circle"></i> Акции</li>
+          <li><i class="fas fa-check-circle"></i> Индивидуальный график вождения</li>
+          <li><i class="fas fa-check-circle"></i> Рассрочка платежа</li>
+          <li><i class="fas fa-check-circle"></i> Сопровождение на экзаменах в ГИБДД</li>
+          <li><i class="fas fa-check-circle"></i> Оформляем документы в ГИБДД за вас</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -140,7 +145,7 @@
           <i class="fas fa-file-pdf"></i>
           <h3>Основная программа</h3>
           <p>Программа профессиональной подготовки водителей категории «B».</p>
-          <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
+          <div class="doc-buttons">
             <a href="programma-osnovnaya-kat-B.pdf" target="_blank" rel="noopener" class="btn" style="font-size:0.9375rem; padding:10px 22px;">
               <i class="fas fa-eye"></i> Открыть
             </a>
@@ -153,11 +158,37 @@
           <i class="fas fa-file-pdf"></i>
           <h3>Адаптированная программа</h3>
           <p>Программа для лиц с ограниченными возможностями здоровья, категория «B».</p>
-          <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
+          <div class="doc-buttons">
             <a href="programma-adaptirovannaya-kat-B.pdf" target="_blank" rel="noopener" class="btn" style="font-size:0.9375rem; padding:10px 22px;">
               <i class="fas fa-eye"></i> Открыть
             </a>
             <a href="programma-adaptirovannaya-kat-B.pdf" download class="btn" style="font-size:0.9375rem; padding:10px 22px; background:#e2e8f0;">
+              <i class="fas fa-download"></i> Скачать
+            </a>
+          </div>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-file-contract"></i>
+          <h3>Договор оферты</h3>
+          <p>Публичная оферта на оказание образовательных услуг автошколы.</p>
+          <div class="doc-buttons">
+            <a href="dogovor.pdf" target="_blank" rel="noopener" class="btn" style="font-size:0.9375rem; padding:10px 22px;">
+              <i class="fas fa-eye"></i> Открыть
+            </a>
+            <a href="dogovor.pdf" download class="btn" style="font-size:0.9375rem; padding:10px 22px; background:#e2e8f0;">
+              <i class="fas fa-download"></i> Скачать
+            </a>
+          </div>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-wheelchair"></i>
+          <h3>Условия обучения инвалидов и лиц с ОВЗ</h3>
+          <p>Информация об условиях доступности обучения для лиц с ограниченными возможностями здоровья.</p>
+          <div class="doc-buttons">
+            <a href="inval.pdf" target="_blank" rel="noopener" class="btn" style="font-size:0.9375rem; padding:10px 22px;">
+              <i class="fas fa-eye"></i> Открыть
+            </a>
+            <a href="inval.pdf" download class="btn" style="font-size:0.9375rem; padding:10px 22px; background:#e2e8f0;">
               <i class="fas fa-download"></i> Скачать
             </a>
           </div>
@@ -170,9 +201,10 @@
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Свяжитесь <span>с нами</span></h2>
-      <p class="section-sub">Оставьте заявку, и мы перезвоним в течение 15 минут</p>
+      <p class="section-sub">Свяжитесь с нами любым удобным способом</p>
 
       <div class="contact-wrap">
+        <!-- ФОРМА ЗАЯВКИ — ВРЕМЕННО СКРЫТА (форма ещё никуда не отправляет данные)
         <div class="contact-form">
           <form action="#" method="post">
             <input type="text" placeholder="Ваше имя" required>
@@ -186,6 +218,7 @@
             <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Отправить заявку</button>
           </form>
         </div>
+        -->
         <div class="contact-info">
           <div class="info-item">
             <i class="fas fa-map-marker-alt"></i>
@@ -235,7 +268,7 @@
       </div>
       <div class="footer-links">
         <a href="privacy.html">Политика конфиденциальности</a>
-        <a href="#">Договор оферты</a>
+        <a href="dogovor.pdf" target="_blank" rel="noopener">Договор оферты</a>
         <a href="#">Вопросы и ответы</a>
       </div>
       <div class="footer-copy">© 2026 Автошкола «Главная Дорога». Все права защищены.</div>
