@@ -19,77 +19,155 @@ body {
   padding: 0 20px;
 }
 
-/* ===== РЕЖИМ ДЛЯ СЛАБОВИДЯЩИХ (ОВЕРРАЙДЫ) ===== */
-body.vision-mode {
-  background: #1a1a1a !important;
-  color: #f0f0f0 !important;
+/* ===== ПАНЕЛЬ «ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ» ===== */
+#a11y-bar {
+  display: none;
+  background: #0b1a33;
+  border-bottom: 3px solid #facc15;
+  padding: 10px 20px;
 }
 
-body.vision-mode header {
-  background: #0a0a0a !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+html.a11y-panel-open #a11y-bar {
+  display: block;
 }
 
-body.vision-mode .hero {
-  background: #0a0a0a !important;
-  border-bottom-color: #ffcc00 !important;
+#a11y-bar .a11y-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-body.vision-mode .benefits {
-  background: #0a0a0a !important;
-  border-color: #ffcc00 !important;
+#a11y-bar .a11y-label {
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 2px;
 }
 
-body.vision-mode .service-card,
-body.vision-mode .review-card,
-body.vision-mode .contact-wrap {
-  background: #2a2a2a !important;
-  border-color: #555 !important;
-  color: #f0f0f0 !important;
+#a11y-bar .a11y-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 4px 10px;
+  line-height: 1.1;
+  background: #16264a;
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-body.vision-mode .service-card p,
-body.vision-mode .review-card p,
-body.vision-mode .contact-info .info-item a,
-body.vision-mode .contact-info .info-item span {
-  color: #ddd !important;
+#a11y-bar .a11y-btn:hover {
+  background: #1e3766;
 }
 
-body.vision-mode .contact-form input,
-body.vision-mode .contact-form textarea {
-  background: #333 !important;
-  border-color: #666 !important;
+#a11y-bar .a11y-btn.active {
+  outline: 2px solid #facc15;
+  outline-offset: -2px;
+}
+
+#a11y-extra {
+  display: none;
+  max-width: 1200px;
+  margin: 10px auto 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#a11y-extra .a11y-row {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 850px) {
+  #a11y-bar .a11y-label {
+    display: none;
+  }
+  #a11y-bar .a11y-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+/* ===== НАСТРОЙКИ ВЕРСИИ ДЛЯ СЛАБОВИДЯЩИХ (ПРИМЕНЯЮТСЯ К КОНТЕНТУ САЙТА) ===== */
+/* Масштабируем через font-size корневого html — весь сайт в rem, поэтому
+   все размеры (включая заголовки) растут пропорционально, без выравнивания
+   в один плоский размер. Панель #a11y-bar задана в px, поэтому не зависит от html
+   и не меняется вместе с контентом. */
+html.a11y-font-1 { font-size: 100%; }
+html.a11y-font-2 { font-size: 140%; }
+html.a11y-font-3 { font-size: 200%; }
+
+html.a11y-fontfamily-1 #site-content, html.a11y-fontfamily-1 #site-content * { font-family: Arial, sans-serif !important; }
+html.a11y-fontfamily-2 #site-content, html.a11y-fontfamily-2 #site-content * { font-family: 'Times New Roman', Times, serif !important; }
+
+html.a11y-spacing-1 #site-content, html.a11y-spacing-1 #site-content * { letter-spacing: normal !important; }
+html.a11y-spacing-2 #site-content, html.a11y-spacing-2 #site-content * { letter-spacing: 1.5px !important; }
+html.a11y-spacing-3 #site-content, html.a11y-spacing-3 #site-content * { letter-spacing: 3px !important; }
+
+html.a11y-lineheight-1 #site-content, html.a11y-lineheight-1 #site-content * { line-height: 1.3 !important; }
+html.a11y-lineheight-2 #site-content, html.a11y-lineheight-2 #site-content * { line-height: 1.6 !important; }
+html.a11y-lineheight-3 #site-content, html.a11y-lineheight-3 #site-content * { line-height: 2 !important; }
+
+html.a11y-no-images #site-content i,
+html.a11y-no-images #site-content .map-container {
+  display: none !important;
+}
+
+/* Цветовые схемы — перекрашивают контент сайта. Саму панель не трогаем,
+   иначе цветные образцы схем (кнопки «Ц») перестанут отличаться друг от друга */
+html.a11y-color-1 #site-content, html.a11y-color-1 #site-content * {
+  background-color: #fff !important;
+  background-image: none !important;
+  color: #000 !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html.a11y-color-2 #site-content, html.a11y-color-2 #site-content * {
+  background-color: #000 !important;
+  background-image: none !important;
   color: #fff !important;
+  border-color: #fff !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html.a11y-color-3 #site-content, html.a11y-color-3 #site-content * {
+  background-color: #e6f3ff !important;
+  background-image: none !important;
+  color: #063462 !important;
+  border-color: #063462 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html.a11y-color-4 #site-content, html.a11y-color-4 #site-content * {
+  background-color: #fffcf0 !important;
+  background-image: none !important;
+  color: #59422e !important;
+  border-color: #59422e !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html.a11y-color-5 #site-content, html.a11y-color-5 #site-content * {
+  background-color: #2a1d10 !important;
+  background-image: none !important;
+  color: #a9dd38 !important;
+  border-color: #a9dd38 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
 
-body.vision-mode footer {
-  background: #0a0a0a !important;
-  border-color: #333 !important;
-}
-
-body.vision-mode .map-container {
-  background: #2a2a2a !important;
-  border-color: #555 !important;
-}
-
-body.vision-mode .section-sub {
-  color: #ccc !important;
-}
-
-body.vision-mode .nav-menu a {
-  color: #eee !important;
-}
-
-body.vision-mode .nav-menu a:hover {
-  color: #ffcc00 !important;
-}
-
-/* Увеличение шрифта в режиме для слабовидящих:
-   все font-size в файле заданы в rem, а масштаб задаётся
-   через font-size корневого <html> (см. скрипт внизу index.html),
-   поэтому увеличивается абсолютно весь текст, а не отдельные элементы */
-body.vision-mode .btn {
-  padding: 18px 50px !important;
+html[class*="a11y-color-"] #site-content a {
+  text-decoration: underline !important;
 }
 
 /* ===== ШАПКА ===== */
@@ -333,6 +411,18 @@ section {
   color: #475569;
   max-width: 600px;
   margin: 0 auto 50px;
+}
+
+.subsection-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #0b1a33;
+  margin: 0 0 24px;
+}
+
+.subsection-title:not(:first-of-type) {
+  margin-top: 50px;
 }
 
 /* ===== ИСПРАВЛЕННАЯ ОБВОДКА ДЛЯ ВСЕХ .SECTION-TITLE SPAN ===== */
@@ -590,14 +680,6 @@ section {
   color: #facc15;
 }
 
-body.vision-mode .consent-check {
-  color: #ddd !important;
-}
-
-body.vision-mode .consent-check a {
-  color: #ffcc00 !important;
-}
-
 /* ===== СТРАНИЦА ПОЛИТИКИ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ ===== */
 .back-link {
   display: inline-flex;
@@ -648,26 +730,6 @@ body.vision-mode .consent-check a {
 .policy-card ul {
   padding-left: 22px;
   margin-bottom: 12px;
-}
-
-body.vision-mode .policy-card {
-  background: #2a2a2a !important;
-  border-color: #555 !important;
-  color: #f0f0f0 !important;
-}
-
-body.vision-mode .policy-card .policy-meta,
-body.vision-mode .policy-card p,
-body.vision-mode .policy-card li {
-  color: #ddd !important;
-}
-
-body.vision-mode .back-link {
-  color: #eee !important;
-}
-
-body.vision-mode .back-link:hover {
-  color: #ffcc00 !important;
 }
 
 /* ===== БЛОК С КАРТОЙ ===== */

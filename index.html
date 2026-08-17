@@ -44,6 +44,50 @@
 </head>
 <body>
 
+  <!-- ПАНЕЛЬ ВЕРСИИ ДЛЯ СЛАБОВИДЯЩИХ -->
+  <div id="a11y-bar" role="region" aria-label="Настройки версии для слабовидящих">
+    <div class="a11y-row">
+      <span class="a11y-label">Шрифт:</span>
+      <button type="button" class="a11y-btn" data-group="font" data-value="1" title="Обычный шрифт" aria-label="Обычный размер шрифта"><span style="font-size:14px;">A</span></button>
+      <button type="button" class="a11y-btn" data-group="font" data-value="2" title="Крупный шрифт" aria-label="Крупный размер шрифта"><span style="font-size:22px;">A</span></button>
+      <button type="button" class="a11y-btn" data-group="font" data-value="3" title="Очень крупный шрифт" aria-label="Очень крупный размер шрифта"><span style="font-size:30px;">A</span></button>
+
+      <span class="a11y-label">Цвет:</span>
+      <button type="button" class="a11y-btn" data-group="color" data-value="1" style="background:#fff;color:#000;" title="Чёрным по белому">Ц</button>
+      <button type="button" class="a11y-btn" data-group="color" data-value="2" style="background:#000;color:#fff;" title="Белым по чёрному">Ц</button>
+      <button type="button" class="a11y-btn" data-group="color" data-value="3" style="background:#e6f3ff;color:#063462;" title="Тёмно-синим по голубому">Ц</button>
+      <button type="button" class="a11y-btn" data-group="color" data-value="4" style="background:#fffcf0;color:#59422e;" title="Коричневым по бежевому">Ц</button>
+      <button type="button" class="a11y-btn" data-group="color" data-value="5" style="background:#2a1d10;color:#a9dd38;" title="Зелёным по тёмно-коричневому">Ц</button>
+
+      <button type="button" id="a11y-images-toggle" class="a11y-btn" title="Показать/скрыть изображения и иконки" aria-label="Показать или скрыть изображения и иконки"><i class="fas fa-image"></i></button>
+      <button type="button" id="a11y-extra-toggle" class="a11y-btn" title="Дополнительные настройки" aria-controls="a11y-extra" aria-expanded="false"><i class="fas fa-sliders-h"></i> Ещё настройки</button>
+      <button type="button" id="a11y-reset" class="a11y-btn" title="Вернуть параметры по умолчанию"><i class="fas fa-undo"></i> Обычная версия</button>
+      <button type="button" id="a11y-close" class="a11y-btn" aria-label="Закрыть панель"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div id="a11y-extra">
+      <div class="a11y-row">
+        <span class="a11y-label">Шрифт:</span>
+        <button type="button" class="a11y-btn" data-group="fontfamily" data-value="1">Arial</button>
+        <button type="button" class="a11y-btn" data-group="fontfamily" data-value="2">Times</button>
+      </div>
+      <div class="a11y-row">
+        <span class="a11y-label">Межбуквенный интервал:</span>
+        <button type="button" class="a11y-btn" data-group="spacing" data-value="1">Стандартный</button>
+        <button type="button" class="a11y-btn" data-group="spacing" data-value="2">Средний</button>
+        <button type="button" class="a11y-btn" data-group="spacing" data-value="3">Большой</button>
+      </div>
+      <div class="a11y-row">
+        <span class="a11y-label">Межстрочный интервал:</span>
+        <button type="button" class="a11y-btn" data-group="lineheight" data-value="1">Стандартный</button>
+        <button type="button" class="a11y-btn" data-group="lineheight" data-value="2">Полуторный</button>
+        <button type="button" class="a11y-btn" data-group="lineheight" data-value="3">Двойной</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-content">
+
   <!-- ШАПКА -->
   <header>
     <div class="container header-inner">
@@ -58,8 +102,8 @@
         <a href="#documents">Документы</a>
         <a href="#contact">Контакты</a>
         <!-- КНОПКА ДЛЯ СЛАБОВИДЯЩИХ -->
-        <button class="vision-toggle" id="visionToggle" aria-label="Включить режим для слабовидящих">
-          <i class="fas fa-eye"></i> <span>Для слабовидящих</span>
+        <button class="vision-toggle" id="visionToggle" aria-haspopup="true" aria-controls="a11y-bar" aria-expanded="false">
+          <i class="fas fa-eye"></i> <span>Версия для слабовидящих</span>
         </button>
       </nav>
       <a href="tel:+79061850080" class="phone-header">
@@ -174,6 +218,9 @@
     <div class="container">
       <h2 class="section-title">Учебные <span>программы</span></h2>
       <p class="section-sub">Официальные документы автошколы — открывайте в браузере или скачивайте себе</p>
+
+      <!-- БЛОК 1: ПРОГРАММЫ ОБУЧЕНИЯ -->
+      <h3 class="subsection-title">Программы обучения</h3>
       <div class="services-grid">
         <div class="service-card">
           <i class="fas fa-file-pdf"></i>
@@ -201,32 +248,32 @@
             </a>
           </div>
         </div>
-        <div class="service-card">
-          <i class="fas fa-file-contract"></i>
-          <h3>Договор оферты</h3>
-          <p>Публичная оферта на оказание образовательных услуг автошколы.</p>
-          <div class="doc-buttons">
-            <a href="dogovor.pdf" target="_blank" rel="noopener" class="btn" style="font-size:0.9375rem; padding:10px 22px;">
-              <i class="fas fa-eye"></i> Открыть
-            </a>
-            <a href="dogovor.pdf" download class="btn" style="font-size:0.9375rem; padding:10px 22px; background:#e2e8f0;">
-              <i class="fas fa-download"></i> Скачать
-            </a>
-          </div>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-wheelchair"></i>
-          <h3>Условия обучения инвалидов и лиц с ОВЗ</h3>
-          <p>Информация об условиях доступности обучения для лиц с ограниченными возможностями здоровья.</p>
-          <div class="doc-buttons">
-            <a href="inval.pdf" target="_blank" rel="noopener" class="btn" style="font-size:0.9375rem; padding:10px 22px;">
-              <i class="fas fa-eye"></i> Открыть
-            </a>
-            <a href="inval.pdf" download class="btn" style="font-size:0.9375rem; padding:10px 22px; background:#e2e8f0;">
-              <i class="fas fa-download"></i> Скачать
-            </a>
-          </div>
-        </div>
+      </div>
+
+      <!-- БЛОК 2: ОБУЧЕНИЕ ЛИЦ С ОВЗ -->
+      <h3 class="subsection-title">Обучение лиц с ОВЗ</h3>
+      <div class="policy-card" style="text-align:left; margin-bottom:0;">
+        <p>На обучение к ИП Андриенко Ирине Леонидовне (Далее - автошкола) по образовательным программам профессионального обучения принимаются лица с ограниченными возможностями здоровья - инвалиды II и III групп по слуху, которым согласно заключению федерального учреждения медико-социальной экспертизы не противопоказано обучение по данной программе.</p>
+        <p>Обучение лиц с ограниченными возможностями здоровья, инвалидов II и III групп по слуху осуществляется по учебному плану.</p>
+        <p>При получении образования в автошколе вышеуказанные лица обеспечиваются бесплатно учебными пособиями и иной учебной литературой.</p>
+        <p>Лица с ограниченными возможностями здоровья при поступлении подают стандартный набор документов и представляют по своему усмотрению оригинал или ксерокопию одного из следующих документов: заключение психолого-медико-педагогической комиссии; справку об установлении инвалидности, выданную федеральным учреждением медико-социальной экспертизы.</p>
+        <p>
+          <a href="inval.pdf" target="_blank" rel="noopener" class="btn" style="font-size:0.9375rem; padding:10px 22px;">
+            <i class="fas fa-eye"></i> Порядок обучения инвалидов (PDF)
+          </a>
+        </p>
+        <p>В целях доступности профессионального обучения обучающимся инвалидам и лицам с ограниченными возможностями здоровья по слуху обеспечивается:</p>
+        <ul>
+          <li>проведение текущего контроля успеваемости, промежуточной и итоговой аттестации обучающихся с учётом ограничений здоровья;</li>
+          <li>использование методов обучения, исходя из их доступности;</li>
+          <li>присутствие сурдопереводчика на договорной основе (Договор возмездного оказания услуг по сурдопереводу от 24.07.2023г.);</li>
+          <li>правовое консультирование обучающихся.</li>
+        </ul>
+        <p>
+          <a href="dogovor.pdf" target="_blank" rel="noopener" class="btn" style="font-size:0.9375rem; padding:10px 22px;">
+            <i class="fas fa-eye"></i> Услуги сурдоперевода (PDF)
+          </a>
+        </p>
       </div>
     </div>
   </section>
@@ -302,42 +349,17 @@
       </div>
       <div class="footer-links">
         <a href="privacy.html">Политика конфиденциальности</a>
-        <a href="dogovor.pdf" target="_blank" rel="noopener">Договор оферты</a>
+        <a href="#">Договор оферты</a>
         <a href="#">Вопросы и ответы</a>
       </div>
       <div class="footer-copy">© 2026 Автошкола «Главная Дорога». Все права защищены.</div>
     </div>
   </footer>
 
-  <!-- ===== СКРИПТ ДЛЯ КНОПКИ СЛАБОВИДЯЩИХ ===== -->
-  <script>
-    (function() {
-      const visionBtn = document.getElementById('visionToggle');
-      const body = document.body;
+  </div>
+  <!-- /#site-content -->
 
-      // Храним состояние в памяти на время сессии
-      // (localStorage здесь не используется — см. пояснение под сайтом)
-      let visionMode = false;
-
-      visionBtn.addEventListener('click', function() {
-        body.classList.toggle('vision-mode');
-
-        const isVision = body.classList.contains('vision-mode');
-        visionMode = isVision;
-
-        // Все размеры шрифта в CSS заданы в rem, поэтому изменение
-        // font-size у <html> масштабирует абсолютно весь текст сайта
-        document.documentElement.style.fontSize = isVision ? '140%' : '';
-
-        // Меняем текст и иконку кнопки
-        if (isVision) {
-          visionBtn.innerHTML = '<i class="fas fa-eye-slash"></i> <span>Обычный режим</span>';
-        } else {
-          visionBtn.innerHTML = '<i class="fas fa-eye"></i> <span>Для слабовидящих</span>';
-        }
-      });
-    })();
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

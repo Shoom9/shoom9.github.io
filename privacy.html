@@ -16,6 +16,50 @@
 </head>
 <body>
 
+  <!-- ПАНЕЛЬ ВЕРСИИ ДЛЯ СЛАБОВИДЯЩИХ -->
+  <div id="a11y-bar" role="region" aria-label="Настройки версии для слабовидящих">
+    <div class="a11y-row">
+      <span class="a11y-label">Шрифт:</span>
+      <button type="button" class="a11y-btn" data-group="font" data-value="1" title="Обычный шрифт" aria-label="Обычный размер шрифта"><span style="font-size:14px;">A</span></button>
+      <button type="button" class="a11y-btn" data-group="font" data-value="2" title="Крупный шрифт" aria-label="Крупный размер шрифта"><span style="font-size:22px;">A</span></button>
+      <button type="button" class="a11y-btn" data-group="font" data-value="3" title="Очень крупный шрифт" aria-label="Очень крупный размер шрифта"><span style="font-size:30px;">A</span></button>
+
+      <span class="a11y-label">Цвет:</span>
+      <button type="button" class="a11y-btn" data-group="color" data-value="1" style="background:#fff;color:#000;" title="Чёрным по белому">Ц</button>
+      <button type="button" class="a11y-btn" data-group="color" data-value="2" style="background:#000;color:#fff;" title="Белым по чёрному">Ц</button>
+      <button type="button" class="a11y-btn" data-group="color" data-value="3" style="background:#e6f3ff;color:#063462;" title="Тёмно-синим по голубому">Ц</button>
+      <button type="button" class="a11y-btn" data-group="color" data-value="4" style="background:#fffcf0;color:#59422e;" title="Коричневым по бежевому">Ц</button>
+      <button type="button" class="a11y-btn" data-group="color" data-value="5" style="background:#2a1d10;color:#a9dd38;" title="Зелёным по тёмно-коричневому">Ц</button>
+
+      <button type="button" id="a11y-images-toggle" class="a11y-btn" title="Показать/скрыть изображения и иконки" aria-label="Показать или скрыть изображения и иконки"><i class="fas fa-image"></i></button>
+      <button type="button" id="a11y-extra-toggle" class="a11y-btn" title="Дополнительные настройки" aria-controls="a11y-extra" aria-expanded="false"><i class="fas fa-sliders-h"></i> Ещё настройки</button>
+      <button type="button" id="a11y-reset" class="a11y-btn" title="Вернуть параметры по умолчанию"><i class="fas fa-undo"></i> Обычная версия</button>
+      <button type="button" id="a11y-close" class="a11y-btn" aria-label="Закрыть панель"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div id="a11y-extra">
+      <div class="a11y-row">
+        <span class="a11y-label">Шрифт:</span>
+        <button type="button" class="a11y-btn" data-group="fontfamily" data-value="1">Arial</button>
+        <button type="button" class="a11y-btn" data-group="fontfamily" data-value="2">Times</button>
+      </div>
+      <div class="a11y-row">
+        <span class="a11y-label">Межбуквенный интервал:</span>
+        <button type="button" class="a11y-btn" data-group="spacing" data-value="1">Стандартный</button>
+        <button type="button" class="a11y-btn" data-group="spacing" data-value="2">Средний</button>
+        <button type="button" class="a11y-btn" data-group="spacing" data-value="3">Большой</button>
+      </div>
+      <div class="a11y-row">
+        <span class="a11y-label">Межстрочный интервал:</span>
+        <button type="button" class="a11y-btn" data-group="lineheight" data-value="1">Стандартный</button>
+        <button type="button" class="a11y-btn" data-group="lineheight" data-value="2">Полуторный</button>
+        <button type="button" class="a11y-btn" data-group="lineheight" data-value="3">Двойной</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-content">
+
   <!-- ШАПКА -->
   <header>
     <div class="container header-inner">
@@ -28,8 +72,8 @@
         <a href="index.html#benefits">Преимущества</a>
         <a href="index.html#documents">Документы</a>
         <a href="index.html#contact">Контакты</a>
-        <button class="vision-toggle" id="visionToggle" aria-label="Включить режим для слабовидящих">
-          <i class="fas fa-eye"></i> <span>Для слабовидящих</span>
+        <button class="vision-toggle" id="visionToggle" aria-haspopup="true" aria-controls="a11y-bar" aria-expanded="false">
+          <i class="fas fa-eye"></i> <span>Версия для слабовидящих</span>
         </button>
       </nav>
       <a href="tel:+79061850080" class="phone-header">
@@ -121,27 +165,10 @@
     </div>
   </footer>
 
-  <!-- ===== СКРИПТ ДЛЯ КНОПКИ СЛАБОВИДЯЩИХ ===== -->
-  <script>
-    (function() {
-      const visionBtn = document.getElementById('visionToggle');
-      const body = document.body;
+  </div>
+  <!-- /#site-content -->
 
-      visionBtn.addEventListener('click', function() {
-        body.classList.toggle('vision-mode');
-
-        const isVision = body.classList.contains('vision-mode');
-
-        document.documentElement.style.fontSize = isVision ? '140%' : '';
-
-        if (isVision) {
-          visionBtn.innerHTML = '<i class="fas fa-eye-slash"></i> <span>Обычный режим</span>';
-        } else {
-          visionBtn.innerHTML = '<i class="fas fa-eye"></i> <span>Для слабовидящих</span>';
-        }
-      });
-    })();
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
